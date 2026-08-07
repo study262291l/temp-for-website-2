@@ -537,245 +537,474 @@ body {
   grid-column: span 2;
 }
 
-/* Container alignment to align with Hero Left height */
+/* Content Area */
 .heroCenter {
   position: relative;
-  overflow: visible;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  overflow: visible; /* Allows render to overflow upwards */
 }
 
-/* -------------------------------------------------------------
-   BOX 3: DEVELOPERS BANNER SEPARATOR
-------------------------------------------------------------- */
-.devBarSeparator {
-  width: 100%;
-  height: 85px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 24px;
-  margin-top: 10px;
-  margin-bottom: 12px;
-  border-radius: 4px;
+/* Hero Banner */
+.heroBanner {
   position: relative;
-  overflow: hidden;
-  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.85);
-
-  /* Background setup with dark overlay for readability contrast */
-  background-image: 
-    linear-gradient(rgba(10, 10, 14, 0.65), rgba(10, 10, 14, 0.75)), 
-    url('assets/type.png'); /* Replace with your Image 3 asset path */
+  height: 380px;
+  background-color: #151515;
+  background-blend-mode: soft-light;
+  background-image: url('assets/type.png'), linear-gradient(to right, var(--accentRed), var(--accentBlue) 75%);
   background-size: cover;
   background-position: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.devBarTitleGroup {
+  background-repeat: no-repeat;
   display: flex;
-  flex-direction: column;
-  z-index: 2;
+  align-items: center;
+  overflow: visible;
+  z-index: 1;
 }
 
-.devBarSubtext {
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: #d1d5db;
-  font-weight: 600;
-  text-transform: uppercase;
+.bannerCharacterImage {
+  position: absolute;
+  right: -50px;
+  top: -56px;
+  height: calc(380px + 56px); 
+  z-index: 30; 
+  pointer-events: none; 
 }
 
-.devBarMainTitle {
-  font-size: 28px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  color: #ffffff;
-  margin: 0;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 12px rgba(255, 255, 255, 0.2);
-  line-height: 1;
+.characterRender {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  filter: contrast(1.05);
 }
 
-.devBarActions {
-  display: flex;
-  gap: 10px;
-  z-index: 2;
+.bannerTextContainer {
+  z-index: 35;
+  margin-left: 215px;
+  position: relative;
 }
 
-.devBarActions .breadcrumbButton {
-  background: rgba(20, 20, 24, 0.85);
-  color: #f3f4f6;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 8px 16px;
-  font-size: 10px;
+.mainTitle {
+  font-family: var(--fontHeader);
+  font-size: 42px;
   font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  border-radius: 2px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  letter-spacing: 4px;
+  line-height: 1;
+  color: #858585;
+  background:linear-gradient(to bottom,var(--textMain2),var(--accentRed) 75%);
+  background-clip: text;
+  -webkit-background-clip: text;color: transparent;
 }
 
-.devBarActions .breadcrumbButton:hover,
-.devBarActions .breadcrumbButton.active {
-  background: var(--accentRed, #c84b4b);
-  color: #ffffff;
-  border-color: var(--accentRed, #c84b4b);
+.accentTag {
+  font-size: 14px;
+  background-color: var(--accentRed);
+  color: #fff;
+  padding-left: 4px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  /* padding: 10px 3px; */
+  vertical-align: middle;
+  margin-bottom: 2px;
 }
 
-/* -------------------------------------------------------------
-   WELCOME SECTION (BOX 1 & BOX 2 POSITIONS SWAPPED)
-------------------------------------------------------------- */
-.welcomeSection {
+.mainTitleLarge {
+  font-family: var(--fontHeader);
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: 6px;
+  line-height: 0.9;
+  margin-bottom: 15px;
+  background:linear-gradient(to bottom,var(--accentRed),var(--textMain2) 75%);
+  background-clip: text;
+  -webkit-background-clip: text;color: transparent;
+  padding-left: 50px;
+}
+.subTitle {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--fontHeader);
+}
+
+.highlightText {
+  color: var(--accentRed);
+  font-weight: 700;
+}
+
+/* Breadcrumbs Bar */
+.breadcrumbBar {
+  position: absolute;
+  top: 360px;
+  left: 30px;
+  right: 30px;
+  height: auto;
+  background: transparent;
   display: flex;
-  align-items: stretch;
-  width: 100%;
-  background-color: rgba(18, 18, 20, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 4px;
-  padding: 20px;
-  gap: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0;
+  z-index: 30;
+  pointer-events: none;
 }
 
-/* BOX 2: Active Members Area (Left) */
-.welcomeActiveMembersBox {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.memberAvatarsRow {
+.breadcrumbActions {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  justify-content: flex-end;
+  pointer-events: auto;
 }
 
-.memberAvatar {
-  width: 38px;
-  height: 38px;
-  border-radius: 3px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  object-fit: cover;
-  filter: grayscale(100%);
-  transition: filter 0.2s ease;
-}
-
-.memberAvatar:hover {
-  filter: grayscale(0%);
-}
-
-.seenTodayDivider {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  letter-spacing: 1px;
-  color: #a1a1aa;
-  text-transform: uppercase;
-  margin-top: 4px;
-}
-
-.seenDotSeparator {
-  color: rgba(255, 255, 255, 0.2);
-}
-
-.userCount {
-  color: #e4e4e7;
-  font-weight: 700;
-}
-
-.memberNamesList {
-  font-size: 11px;
-  line-height: 1.7;
-  color: #a1a1aa;
-  margin: 0;
-  max-height: 110px;
-  overflow-y: auto;
-  padding-right: 6px;
-}
-
-.highlightMember {
-  color: #d4a373;
-  font-weight: 600;
-}
-
-.forumNavGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-top: auto;
-}
-
-.forumNavBtn {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #d4d4d8;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-align: center;
-  padding: 8px 0;
+.breadcrumbBtn {
+  position: relative;
+  display: inline-block;
   text-decoration: none;
-  transition: background 0.2s ease;
-}
-
-.forumNavBtn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-}
-
-/* Divider Line */
-.welcomeVerticalDivider {
-  width: 1px;
-  background-color: rgba(255, 255, 255, 0.1);
-  align-self: stretch;
-}
-
-/* BOX 1: Newest Member Area (Right) */
-.welcomeNewMemberBox {
-  width: 180px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  flex-shrink: 0;
-}
-
-.newMemberAvatarFrame {
-  width: 110px;
-  height: 110px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 5px;
-  background: rgba(0, 0, 0, 0.3);
-  margin-bottom: 12px;
-}
-
-.newMemberImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(30%);
-}
-
-.newMemberTag {
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  color: #a1a1aa;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-
-.newMemberName {
-  font-size: 13px;
-  font-weight: 800;
-  line-height: 1.3;
-  color: #84a98c;
+  padding: 8px 12px;
+  font-size: 8px;
+  font-weight: 700;
   letter-spacing: 1px;
-  margin: 0;
-  text-transform: uppercase;
+  align-self: stretch;
+  min-height: 0;
+  flex-shrink: 0;
+
+  background-color: var(--textMain2);
+  transition: transform 0.2s ease;
+}
+
+.breadcrumbBtnText {
+  display: inline-block;
+
+  background-image: linear-gradient(to right, 
+    var(--accentRed) 50%, 
+    var(--accentBlue) 100%
+  );
+
+  background-size: 200% 100%;
+  background-position: left bottom;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  transition: background-position 0.4s ease;
+}
+
+.breadcrumbBtn:hover,
+.breadcrumbBtn.active {
+  transform: translateY(-1px);
+}
+
+.breadcrumbBtn:hover .breadcrumbBtnText,
+.breadcrumbBtn.active .breadcrumbBtnText {
+  background-position: right bottom;
+}
+
+
+.developerBanner{
+    position: relative;
+    overflow: hidden;
+
+    background-image: url("assets/developer-banner.jpg"); /* change later */
+    background-size: cover;
+    background-position: center;
+
+    margin: 0;
+    padding: 60px;
+
+    min-height: 180px;
+
+    display: flex;
+    align-items: center;
+}
+
+.developerBanner::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:rgba(0,0,0,.60);
+}
+
+.developerBannerContent{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:60px;
+}
+
+.developerBannerText{
+    max-width:650px;
+}
+
+.developerEyebrow{
+
+    display:block;
+
+    color:#d7d7d7;
+
+    font-size:11px;
+    letter-spacing:4px;
+
+    margin-bottom:10px;
+
+}
+
+.developerTitle{
+
+    font-family:var(--fontHeader);
+
+    color:white;
+
+    font-size:42px;
+
+    margin-bottom:18px;
+
+    letter-spacing:2px;
+
+}
+
+.developerDescription{
+
+    color:#d4d4d4;
+
+    line-height:1.8;
+
+    font-size:13px;
+
+    max-width:520px;
+
+}
+
+
+/* ==========================================================
+   Banner Buttons
+========================================================== */
+
+.developerBannerButtons{
+
+    display:flex;
+
+    gap:14px;
+
+    flex-wrap:wrap;
+
+    justify-content:flex-end;
+
+}
+
+.developerBannerButtons a{
+
+    color:white;
+
+    text-decoration:none;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    font-size:11px;
+
+    padding:12px 22px;
+
+    border:1px solid rgba(255,255,255,.3);
+
+    background:rgba(20,20,20,.45);
+
+    backdrop-filter:blur(5px);
+
+    transition:.25s;
+
+}
+
+.developerBannerButtons a:hover{
+
+    background:var(--accentRed);
+
+    border-color:var(--accentRed);
+
+}
+
+
+/* ==========================================================
+   Welcome
+========================================================== */
+
+.welcomeHomepage{
+
+    background:#ece8e2;
+
+    padding:40px;
+
+    display:grid;
+
+    grid-template-columns:3fr 1fr;
+
+    gap:25px;
+
+}
+
+.welcomeCard{
+
+    background:white;
+
+    padding:45px;
+
+    border:1px solid rgba(0,0,0,.08);
+
+}
+
+.welcomeTag{
+
+    display:inline-block;
+
+    background:var(--accentRed);
+
+    color:white;
+
+    padding:6px 12px;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    margin-bottom:18px;
+
+}
+
+.welcomeCard h2{
+
+    font-family:var(--fontHeader);
+
+    color:#222;
+
+    font-size:32px;
+
+    margin-bottom:18px;
+
+}
+
+.welcomeCard p{
+
+    color:#666;
+
+    line-height:1.8;
+
+    font-size:14px;
+
+}
+
+
+/* ==========================================================
+   Welcome Buttons
+========================================================== */
+
+.welcomeButtonGrid{
+
+    margin-top:35px;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:14px;
+
+}
+
+.welcomeButtonGrid a{
+
+    text-decoration:none;
+
+    text-align:center;
+
+    padding:14px;
+
+    color:#222;
+
+    border:1px solid #ddd;
+
+    transition:.25s;
+
+}
+
+.welcomeButtonGrid a:hover{
+
+    background:var(--accentRed);
+
+    color:white;
+
+}
+
+
+/* ==========================================================
+   Developer Card
+========================================================== */
+
+.featuredDeveloper{
+
+    background:white;
+
+    border:1px solid rgba(0,0,0,.08);
+
+    padding:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.featuredDeveloper img{
+
+    width:100%;
+
+    max-width:220px;
+
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+    margin-bottom:20px;
+
+}
+
+.featuredDeveloper span{
+
+    color:var(--accentRed);
+
+    letter-spacing:2px;
+
+    font-size:10px;
+
+}
+
+.featuredDeveloper h3{
+
+    margin-top:10px;
+
+    margin-bottom:12px;
+
+    font-family:var(--fontHeader);
+
+    color:#222;
+
+    font-size:24px;
+
+}
+
+.featuredDeveloper p{
+
+    color:#777;
+
+    line-height:1.7;
+
+    font-size:13px;
+
 }
