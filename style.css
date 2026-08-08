@@ -2,7 +2,7 @@
   --primaryBg: #121214;
   --secondaryBg: #1c1c1e;
   --sidebarBg: #F0A06F;
-  --welcomeBg: #242426;
+  --welcomeBg: #ddd;
 
   --lightDark: #444;
   --lightDarker: #3b3b3b;
@@ -124,7 +124,7 @@ body {
 /* Left Sidebar */
 .heroLeft {
   width: max(280px, 28vw);
-  background-color: #181818;
+  background-color: #191919;
   padding: clamp(28px, 4vw, 60px) 28px;
   display: flex;
   flex-direction: column;
@@ -628,87 +628,18 @@ body {
   font-weight: 700;
 }
 
-/* Breadcrumbs Bar */
-.breadcrumbBar {
-  position: absolute;
-  top: 360px;
-  left: 30px;
-  right: 30px;
-  height: auto;
-  background: transparent;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0;
-  z-index: 30;
-  pointer-events: none;
-}
-
-.breadcrumbActions {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  pointer-events: auto;
-}
-
-.breadcrumbBtn {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  padding: 8px 12px;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  align-self: stretch;
-  min-height: 0;
-  flex-shrink: 0;
-
-  background-color: var(--textMain2);
-  transition: transform 0.2s ease;
-}
-
-.breadcrumbBtnText {
-  display: inline-block;
-
-  background-image: linear-gradient(to right, 
-    var(--accentRed) 50%, 
-    var(--accentBlue) 100%
-  );
-
-  background-size: 200% 100%;
-  background-position: left bottom;
-
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  transition: background-position 0.4s ease;
-}
-
-.breadcrumbBtn:hover,
-.breadcrumbBtn.active {
-  transform: translateY(-1px);
-}
-
-.breadcrumbBtn:hover .breadcrumbBtnText,
-.breadcrumbBtn.active .breadcrumbBtnText {
-  background-position: right bottom;
-}
-
-
 .developerBanner{
     position: relative;
-    overflow: hidden;
 
-    background-image: url("assets/developer-banner.jpg"); /* change later */
+    background-image: url("assets/type2.png"); 
     background-size: cover;
-    background-position: center;
+    background-position: 0 calc(25% - 3px);
+    background-repeat: no-repeat; 
 
     margin: 0;
-    padding: 60px;
+    padding: 26px 60px;
 
-    min-height: 180px;
+    min-height: 200px;
 
     display: flex;
     align-items: center;
@@ -734,65 +665,20 @@ body {
     gap:60px;
 }
 
-.developerBannerText{
-    max-width:650px;
-}
-
-.developerEyebrow{
-
-    display:block;
-
-    color:#d7d7d7;
-
-    font-size:11px;
-    letter-spacing:4px;
-
-    margin-bottom:10px;
-
-}
-
-.developerTitle{
-
-    font-family:var(--fontHeader);
-
-    color:white;
-
-    font-size:42px;
-
-    margin-bottom:18px;
-
-    letter-spacing:2px;
-
-}
-
-.developerDescription{
-
-    color:#d4d4d4;
-
-    line-height:1.8;
-
-    font-size:13px;
-
-    max-width:520px;
-
-}
-
-
 /* ==========================================================
    Banner Buttons
 ========================================================== */
 
-.developerBannerButtons{
-
-    display:flex;
-
-    gap:14px;
-
-    flex-wrap:wrap;
-
-    justify-content:flex-end;
-
+.developerBannerButtons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    
+    width: 100%; 
+    
+    justify-content: space-around; 
 }
+
 
 .developerBannerButtons a{
 
@@ -804,9 +690,9 @@ body {
 
     letter-spacing:1px;
 
-    font-size:11px;
+    font-size:10px;
 
-    padding:12px 22px;
+    padding:9px 18px;
 
     border:1px solid rgba(255,255,255,.3);
 
@@ -815,6 +701,14 @@ body {
     backdrop-filter:blur(5px);
 
     transition:.25s;
+
+}
+
+.developerBannerButtons a.active{
+
+    background:var(--accentRed);
+
+    border-color:var(--accentRed);
 
 }
 
@@ -833,7 +727,9 @@ body {
 
 .welcomeHomepage{
 
-    background:#ece8e2;
+    background-color:var(--welcomeBg);
+    background-image:var(--texture);
+    background-blend-mode: multiply;
 
     padding:40px;
 
@@ -847,11 +743,11 @@ body {
 
 .welcomeCard{
 
-    background:white;
+    /* background:white; */
 
     padding:45px;
 
-    border:1px solid rgba(0,0,0,.08);
+    /* border:1px solid rgba(0,0,0,.08); */
 
 }
 
