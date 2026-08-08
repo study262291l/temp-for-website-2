@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Type Soul - Build Guide</title>
+  <link rel="stylesheet" href="builds.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- HERO SECTION (Image 1 Style) -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <p class="sub-header">BUILD GUILDES</p>
+      <h1 class="hero-title">TYPE SOUL</h1>
+    </div>
+  </section>
+
+  <section class="intro-section">
+    <div class="intro-container">
+      <div class="intro-header">
+        <i class="fa-solid fa-butterfly butterfly-icon"></i>
+        <h2>Intro</h2>
+      </div>
+      <div class="intro-grid">
+        <p class="intro-text">
+          Welcome to the ultimate Type Soul Build Guide! Here you can explore top-tier builds customized for each faction. Select a race below to view statutory recommendations, skill trees, and meta equipment to maximize your combat performance in the field.
+        </p>
+        <p class="intro-text">
+          Check back regularly for updated meta strategies and community patch summaries to keep your character optimized for every update.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RACE SELECTION & BUILDS SECTION (Image 2 Style) -->
+  <section class="races-section">
+    <div class="race-banner">
+
+      <h1 class="race-title" id="display-title">SOUL REAPER</h1>
+      <p class="race-subtitle" id="display-subtitle">4 RACES • OPTIMIZED BUILDS</p>
+    </div>
+
+    <!-- 4 Race Cards -->
+    <div class="race-grid">
+      <div class="race-card active" onclick="selectRace('sr')">
+        <div class="img-wrapper">
+          <img src="assets/type.png" alt="Soul Reaper">
+        </div>
+        <span>SOUL REAPER</span>
+      </div>
+
+      <div class="race-card" onclick="selectRace('quincy')">
+        <div class="img-wrapper">
+          <img src="assets/type2.png" alt="Quincy">
+        </div>
+        <span>QUINCY</span>
+      </div>
+
+      <div class="race-card" onclick="selectRace('arrancar')">
+        <div class="img-wrapper">
+          <img src="assets/type3.png" alt="Arrancar">
+        </div>
+        <span>ARRANCAR</span>
+      </div>
+
+      <div class="race-card" onclick="selectRace('fullbringer')">
+        <div class="img-wrapper">
+          <img src="assets/type4.png" alt="Fullbringer">
+        </div>
+        <span>FULLBRINGER</span>
+      </div>
+    </div>
+
+    <!-- Builds List (Transformed from Music Tracks) -->
+    <div class="builds-container" id="builds-list">
+      <!-- Generated via JS -->
+    </div>
+  </section>
+
+  <script>
+    const raceData = {
+      sr: {
+        title: "SOUL REAPER",
+        subtitle: "SHIKAI & BANKAI BUILDS",
+        builds: [
+          { number: "01", name: "Kendo / Speed Hybrid", detail: "60 Kendo • 40 Speed", stats: "High Meta" },
+          { number: "02", name: "Full Hakuda Aggro", detail: "65 Hakuda • 35 Speed", stats: "Close Range" },
+          { number: "03", name: "Flower Shikai Burst", detail: "50 Kendo • 50 Kido", stats: "Burst Damage" },
+          { number: "04", name: "Ice/Frost Stun Build", detail: "60 Kido • 40 Kendo", stats: "Crowd Control" }
+        ]
+      },
+      quincy: {
+        title: "QUINCY",
+        subtitle: "VOLLSTÄNDIG BUILDS",
+        builds: [
+          { number: "01", name: "Cyber Bow Speed Sniper", detail: "60 Speed • 40 Kido", stats: "Ranged Poke" },
+          { number: "02", name: "Grit / Greatsword Tank", detail: "65 Kendo • 35 Defense", stats: "Super Armor" },
+          { number: "03", name: "Heilag Pfeil Burst", detail: "50 Speed • 50 Kendo", stats: "Fast Combos" }
+        ]
+      },
+      arrancar: {
+        title: "ARRANCAR",
+        subtitle: "RESURRECCIÓN BUILDS",
+        builds: [
+          { number: "01", name: "Cero Oscuras Spammer", detail: "65 Kido • 35 Speed", stats: "Ranged AOE" },
+          { number: "02", name: "Bone Sword Hakuda", detail: "60 Hakuda • 40 Speed", stats: "High Mobility" },
+          { number: "03", name: "Panthera Rush Build", detail: "50 Speed • 50 Kendo", stats: "Aggressive" }
+        ]
+      },
+      fullbringer: {
+        title: "FULLBRINGER",
+        subtitle: "FULLBRINGER BUILDS",
+        builds: [
+          { number: "01", name: "Masked Kendo Mastery", detail: "60 Kendo • 40 Speed", stats: "Damage Buff" },
+          { number: "02", name: "Cero Mask Hybrid", detail: "55 Kido • 45 Hakuda", stats: "Versatile" }
+        ]
+      }
+    };
+
+    function selectRace(raceKey) {
+      const data = raceData[raceKey];
+      
+      // Update Active Card
+      const cards = document.querySelectorAll('.race-card');
+      cards.forEach(card => card.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+
+      // Animate Titles
+      const titleEl = document.getElementById('display-title');
+      const subEl = document.getElementById('display-subtitle');
+      
+      titleEl.classList.remove('fade-in');
+      subEl.classList.remove('fade-in');
+      
+      void titleEl.offsetWidth; // Trigger Reflow
+
+      titleEl.innerText = data.title;
+      subEl.innerText = data.subtitle;
+
+      titleEl.classList.add('fade-in');
+      subEl.classList.add('fade-in');
+
+      // Populate Builds List
+      const buildsContainer = document.getElementById('builds-list');
+      buildsContainer.innerHTML = '';
+
+      data.builds.forEach(build => {
+        const item = document.createElement('div');
+        item.className = 'build-card fade-in';
+        item.innerHTML = `
+          <div class="build-left">
+            <span class="build-num">${build.number}</span>
+            <div>
+              <div class="build-name">${build.name}</div>
+              <div class="build-detail">${build.detail}</div>
+            </div>
+          </div>
+          <div class="build-right">
+            <span class="build-tag">${build.stats}</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        `;
+        buildsContainer.appendChild(item);
+      });
+    }
+
+    // Initialize Page
+    window.onload = () => {
+      selectRace('sr');
+    };
+    
+  </script>
+</body>
+</html>
