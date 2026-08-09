@@ -12,7 +12,7 @@
   <!-- HERO SECTION (Image 1 Style) -->
   <section class="hero-section">
     <div class="hero-content">
-      <p class="sub-header">BUILD GUILDES</p>
+      <p class="sub-header">BUILD GUIDES</p>
       <h1 class="hero-title">TYPE SOUL</h1>
     </div>
   </section>
@@ -35,37 +35,36 @@
   </section>
 
   <!-- RACE SELECTION & BUILDS SECTION (Image 2 Style) -->
-  <section class="races-section">
+  <section class="races-section" id="racesSection">
     <div class="race-banner">
-
       <h1 class="race-title" id="display-title">SOUL REAPER</h1>
       <p class="race-subtitle" id="display-subtitle">4 RACES • OPTIMIZED BUILDS</p>
     </div>
 
     <!-- 4 Race Cards -->
     <div class="race-grid">
-      <div class="race-card active" onclick="selectRace('sr')">
+      <div class="race-card active" onclick="selectRace('sr', event)">
         <div class="img-wrapper">
           <img src="assets/type.png" alt="Soul Reaper">
         </div>
         <span>SOUL REAPER</span>
       </div>
 
-      <div class="race-card" onclick="selectRace('quincy')">
+      <div class="race-card" onclick="selectRace('quincy', event)">
         <div class="img-wrapper">
           <img src="assets/type2.png" alt="Quincy">
         </div>
         <span>QUINCY</span>
       </div>
 
-      <div class="race-card" onclick="selectRace('arrancar')">
+      <div class="race-card" onclick="selectRace('arrancar', event)">
         <div class="img-wrapper">
           <img src="assets/type3.png" alt="Arrancar">
         </div>
         <span>ARRANCAR</span>
       </div>
 
-      <div class="race-card" onclick="selectRace('fullbringer')">
+      <div class="race-card" onclick="selectRace('fullbringer', event)">
         <div class="img-wrapper">
           <img src="assets/type4.png" alt="Fullbringer">
         </div>
@@ -73,7 +72,7 @@
       </div>
     </div>
 
-    <!-- Builds List (Transformed from Music Tracks) -->
+    <!-- Builds List -->
     <div class="builds-container" id="builds-list">
       <!-- Generated via JS -->
     </div>
@@ -84,48 +83,61 @@
       sr: {
         title: "SOUL REAPER",
         subtitle: "SHIKAI & BANKAI BUILDS",
+        color: "var(--accentRed)",
         builds: [
-          { number: "01", name: "Kendo / Speed Hybrid", detail: "60 Kendo • 40 Speed", stats: "High Meta" },
-          { number: "02", name: "Full Hakuda Aggro", detail: "65 Hakuda • 35 Speed", stats: "Close Range" },
-          { number: "03", name: "Flower Shikai Burst", detail: "50 Kendo • 50 Kido", stats: "Burst Damage" },
-          { number: "04", name: "Ice/Frost Stun Build", detail: "60 Kido • 40 Kendo", stats: "Crowd Control" }
+          { number: "01", name: "Kendo / Speed Hybrid", detail: "50 Kendo • 15 Speed", stats: "High Skill" },
+          { number: "02", name: "Hakuda Shunpo", detail: "40 Hakuda • 25 Speed", stats: "Close Ranged" },
+          { number: "03", name: "Full Kendo Ink", detail: "65 Kendo • Ink Shikai", stats: "Burst Damage" },
+          { number: "04", name: "Soul Reaper Kido / Speed Hybrid", detail: "45 Kido • 20 Speed", stats: "Ranged" }
         ]
       },
       quincy: {
         title: "QUINCY",
         subtitle: "VOLLSTÄNDIG BUILDS",
+        color: "var(--accentBlue)",
         builds: [
-          { number: "01", name: "Cyber Bow Speed Sniper", detail: "60 Speed • 40 Kido", stats: "Ranged Poke" },
-          { number: "02", name: "Grit / Greatsword Tank", detail: "65 Kendo • 35 Defense", stats: "Super Armor" },
-          { number: "03", name: "Heilag Pfeil Burst", detail: "50 Speed • 50 Kendo", stats: "Fast Combos" }
+          { number: "01", name: "Quincy Kido / Speed Hybrid", detail: "50 Kido • 15 Speed", stats: "Ranged" },
+          { number: "02", name: "Full Speed Death Dealing Burst", detail: "65 Speed", stats: "Cheese" },
+          { number: "03", name: "Speed / Kendo Hybrid", detail: "50 Speed • 15 Kendo", stats: "Fast Combos" }
         ]
       },
       arrancar: {
         title: "ARRANCAR",
         subtitle: "RESURRECCIÓN BUILDS",
+        color: "var(--arrancar)",
         builds: [
-          { number: "01", name: "Cero Oscuras Spammer", detail: "65 Kido • 35 Speed", stats: "Ranged AOE" },
-          { number: "02", name: "Bone Sword Hakuda", detail: "60 Hakuda • 40 Speed", stats: "High Mobility" },
-          { number: "03", name: "Panthera Rush Build", detail: "50 Speed • 50 Kendo", stats: "Aggressive" }
+          { number: "01", name: "Arrancar Kido Hakuda", detail: "30 Hakuda • 35 Kido", stats: "No Skill Burst" },
+          { number: "02", name: "Speed / Kendo Kybrid", detail: "45 Speed • 20 Kendo", stats: "Fast Combos" },
+          { number: "03", name: "Hakuda / Speed Hybrid", detail: "50 Hakuda • 15 Speed", stats: "Aggressive Combos" }
         ]
       },
       fullbringer: {
         title: "FULLBRINGER",
         subtitle: "FULLBRINGER BUILDS",
+        color: "var(--fullbringer)",
         builds: [
-          { number: "01", name: "Masked Kendo Mastery", detail: "60 Kendo • 40 Speed", stats: "Damage Buff" },
-          { number: "02", name: "Cero Mask Hybrid", detail: "55 Kido • 45 Hakuda", stats: "Versatile" }
+          { number: "01", name: "Cheese", detail: "65 Speed", stats: "Cheese" },
+          { number: "02", name: "Cheese2", detail: "65 Speed • 65 Speed", stats: "Cheese2" }
         ]
       }
     };
 
-    function selectRace(raceKey) {
+    function selectRace(raceKey, event) {
       const data = raceData[raceKey];
+      const racesSection = document.getElementById('racesSection');
       
-      // Update Active Card
+      // Update background gradient color
+      racesSection.style.setProperty('--current-accent', data.color);
+
+      // Update Active Card Class
       const cards = document.querySelectorAll('.race-card');
       cards.forEach(card => card.classList.remove('active'));
-      event.currentTarget.classList.add('active');
+
+      if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+      } else {
+        cards[0].classList.add('active'); // Default to SR
+      }
 
       // Animate Titles
       const titleEl = document.getElementById('display-title');
@@ -166,11 +178,10 @@
       });
     }
 
-    // Initialize Page
-    window.onload = () => {
+    // Default load start: SR
+    window.addEventListener('DOMContentLoaded', () => {
       selectRace('sr');
-    };
-    
+    });
   </script>
 </body>
 </html>
