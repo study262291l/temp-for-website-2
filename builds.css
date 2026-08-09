@@ -9,11 +9,20 @@
   --textMain2: #ffffff;
   --textMuted: #8e8e93;
 
+  --arrancar: #774a9d; 
+  --fullbringer: #3a8470;
+
   --fontHeader: 'Cinzel', serif;
   --fontBody: 'Montserrat', sans-serif;
   --fontScript: 'Pinyon Script', cursive;
 
   --texture: url('assets/subtle-grunge.png');
+}
+
+@property --current-accent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #f4855d;
 }
 
 * {
@@ -48,13 +57,13 @@ body {
   font-family: var(--fontHeader);
   letter-spacing: 4px;
   font-size: 14px;
-  color: #e5cfd8;
   font-weight: 600;
   margin-bottom: -10px;
 
-  background:linear-gradient(to bottom,var(--textMain2),var(--accentRed) 75%);
+  background: linear-gradient(to bottom, var(--textMain2), var(--accentRed) 75%);
   background-clip: text;
-  -webkit-background-clip: text;color: transparent;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .hero-title {
@@ -65,9 +74,10 @@ body {
   margin-bottom: 15px;
   letter-spacing: 6px;
 
-  background:linear-gradient(to bottom,var(--accentRed),var(--textMain2) 75%);
+  background: linear-gradient(to bottom, var(--accentRed), var(--textMain2) 75%);
   background-clip: text;
-  -webkit-background-clip: text;color: transparent;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .intro-section {
@@ -104,7 +114,9 @@ body {
 
 /* ================= RACES SECTION (Image 2) ================= */
 .races-section {
-  background: linear-gradient(180deg, #c3989e 0%, #dcd3d8 100%);
+  --current-accent: var(--accentRed);
+  background: linear-gradient(to bottom, var(--current-accent), var(--textMain2) 75%);
+  transition: --current-accent 0.5s ease;
   padding: 40px 10%;
   min-height: 100vh;
 }
@@ -114,33 +126,6 @@ body {
   margin-bottom: 30px;
   position: relative;
 }
-
-/* .banner-meta {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 10px;
-} */
-
-/* .play-btn {
-  width: 50px;
-  height: 50px;
-  background: white;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  color: #333;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  cursor: pointer;
-}
-
-.dots {
-  font-size: 20px;
-  color: white;
-  cursor: pointer;
-} */
 
 .race-title {
   font-size: 48px;
