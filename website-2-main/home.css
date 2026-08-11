@@ -21,11 +21,9 @@
   --rare: #8e89892b;
   --legendary: #47390f;
 
-
   --mythicalSnow: #83b3b6;
   --mythicalAizen: #7c218e;
   --mythicalBenihime: #611a15;
-
 
   --arrancar: #774a9d; 
   --legendaryVampire: #21463c;
@@ -38,6 +36,11 @@
   --fullbringer: #3a8470;
   --mythicalBookOfTheEnd: #86f4cc;
   --mythicalChess: #55218e;
+
+  --beginnerRec: #217531;
+  --intermediateRec: #ae8535;
+  --advancedRec: #642686;
+  --masterRec: #c5402f;
 
   --welcomeBgLight: #e7e5e1;
   --wCardBg: #ffffff;
@@ -1589,4 +1592,236 @@ body {
 
 .factionHeroDot.active {
   background: var(--currentAccentFaction);
+}
+
+
+/* ==========================================================
+  Featured Builds Section
+========================================================== */
+
+.featuredBuildsSection {
+  background-color: var(--welcomeBg);
+  background-image: var(--texture);
+  background-blend-mode: multiply;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.fbCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.fbCard {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fbCardTopSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.fbCardBadge {
+  color: var(--textMain);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 3px 8px;
+  text-transform: uppercase;
+}
+
+.fbCardBadge.beginner{
+  background: var(--beginnerRec)
+}
+
+.fbCardBadge.intermediate{
+  background: var(--intermediateRec)
+}
+
+
+.fbCardBadge.advanced{
+  background: var(--advancedRec)
+}
+
+.fbCardBadge.master{
+  background: var(--masterRec)
+}
+
+.fbCardTags {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--textDarkMuted);
+}
+
+.fbCardMainInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fbCardTitle {
+  font-family: var(--fontHeader);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.fbCardTitle.sr {
+  background: linear-gradient(to bottom, var(--accentRed), var(--textDarkPrimary) 130%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fbCardTitle.arrancar {
+  background: linear-gradient(to bottom, var(--arrancar), var(--textDarkPrimary) 130%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fbCardTitle.quincy {
+  background: linear-gradient(to bottom, var(--accentBlue), var(--textDarkPrimary) 130%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.fbCardTitle.fullbringer {
+  background: linear-gradient(to bottom, var(--fullbringer), var(--textDarkPrimary) 130%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fbCardContentRow {
+  padding-top: 12px;
+  display: flex;
+  gap: 14px;
+}
+
+.fbCardLeftMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 54px;
+  flex-shrink: 0;
+}
+
+.fbCardAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.fbCardAvatar.sr{
+  border: 1px solid var(--accentRed, #d9534f);
+}
+
+.fbCardAvatar.arrancar{
+  border: 1px solid var(--arrancar, #d9534f);
+}
+
+.fbCardAvatar.quincy{
+  border: 1px solid var(--accentBlue, #d9534f);
+}
+
+.fbCardAvatar.fullbringer{
+  border: 1px solid var(--fullbringer, #d9534f);
+}
+
+.fbCardAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fbCardDots {
+  height: 24px;
+  border-left: dotted 2px rgba(0, 0, 0, 0.3);
+  margin: 2px 0;
+}
+
+.fbMetaStat {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.fbMetaLabel {
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--textDarkPrimary);
+}
+
+.fbMetaVal {
+  font-size: 6.5px;
+  color: var(--textDarkMuted);
+}
+
+.fbCardDescText {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--textDarkPrimary);
+}
+
+.fbCardDescText span {
+  font-size: 20px;
+}
+
+.fbCardDescText i {
+  font-size: 15px;
+  line-height: 1.6;
+  background: linear-gradient(to bottom, var(--currentAccentFaction), var(--textDarkPrimary) 130%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fbCardDivider {
+  border-top: dotted 2px rgba(0, 0, 0, 0.2);
+  margin: 12px 0 8px;
+}
+
+.fbFootStuff {
+  font-family: var(--fontHeader);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--textDarkPrimary);
+  line-height: 1.3;
+  margin-bottom: 4px;
+  transition: 0.25s ease;
+}
+
+.fbFootStuff.sr:hover {
+  color: var(--accentRed);
+}
+
+.fbFootStuff.arrancar:hover {
+  color: var(--arrancar);
+}
+
+.fbFootStuff.quincy:hover {
+  color: var(--accentBlue);
+}
+
+.fbFootStuff.fullbringer:hover {
+  color: var(--fullbringer);
 }
