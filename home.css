@@ -1,7 +1,7 @@
 :root {
   --primaryBg: #121214;
   --secondaryBg: #1c1c1e;
-  --sidebarBg: #F0A06F;
+  --sidebarBg: #191919;
   --welcomeBg: #ddd;
 
   --lightDark: #444;
@@ -16,6 +16,7 @@
   --textMuted: #8e8e93;
 
   --currentAccent: var(--accentRed);
+  --currentAccentFaction: var(--accentRed);
 
   --rare: #8e89892b;
   --legendary: #47390f;
@@ -76,7 +77,7 @@ body {
   border-bottom: px solid rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
-  position: sticky;
+  /* position: sticky; */
   top: 0;
   z-index: 20;
   background-image: var(--textureFlower);
@@ -141,7 +142,7 @@ body {
 /* Left Sidebar */
 .heroLeft {
   width: max(280px, 28vw);
-  background-color: #191919;
+  background-color: var(--sidebarBg);
   padding: clamp(28px, 4vw, 60px) 28px;
   display: flex;
   flex-direction: column;
@@ -704,84 +705,308 @@ body {
   font-weight: 700;
 }
 
-/* Utility Bar — thin breadcrumb strip above the race banner */
-.utilityBar {
+
+/* ==========================================================
+   Lil Divider Thing
+========================================================== */
+
+.lilSectionBar {
+  background-image: var(--texture);
+  background-blend-mode: multiply;
+  background-color: var(--welcomeBg);   
+  padding: 12px 12px; 
+  box-sizing: border-box;
+}
+
+.lilSectionBarInner {
+  border: 2px solid #1C1A1D;
+  padding: 3px;       
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.lilSectionBarInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--currentAccent);
+  width: 100%;
+  /* box-sizing: border-box; */
+  
+  color: #FFFFFF;                
+  font-family: var(--fontHeader);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 0;
+}
+
+
+/* ==========================================================
+   Getting Started Section
+========================================================== */
+
+.gettingStartedSection {
+  background-color: var(--welcomeBg);
+  background-image: var(--texture);
+  background-blend-mode: multiply;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Header Banner */
+.gsHeaderBanner {
+  position: relative;
+  background-color: #1a1a1c;
+  background-image: linear-gradient(to right, #141416 40%, rgba(20, 20, 22, 0.3)), var(--texture);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 110px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--welcomeBgLight);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 10px 24px;
+  padding: 20px 30px;
+  overflow: hidden;
 }
 
-.utilityBarLeft {
+.gsHeaderContent {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 9px;
+  gap: 16px;
+  z-index: 2;
+  max-width: 60%;
+}
+
+.gsHeaderAccent {
+  width: 2px;
+  height: 48px;
+  background-color: var(--currentAccent);
+  border-right: 1px dotted rgba(255, 255, 255, 0.5);
+}
+
+.gsHeaderTitle {
+  font-family: var(--fontHeader);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.gsHeaderSub {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--currentAccent);
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.gsHeaderArt {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 45%;
+  background-image: url('assets/subtle-grunge.png'); /* Replace with custom cloud/manga art if preferred */
+  background-size: cover;
+  background-position: right center;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* 3-Column Card Layout */
+.gsCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.gsCard {
+  background-color: #dedcd8;
+  background-image: var(--texture);
+  background-blend-mode: multiply;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Card Header Bar */
+.gsCardTopNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.gsCardBadge {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 3px 8px;
+  text-transform: uppercase;
+}
+
+.gsCardSubLinks {
+  font-size: 8px;
   font-weight: 700;
   letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--textDarkPrimary);
-  flex-wrap: wrap;
-}
-
-.utilityBarIcon {
-  color: var(--currentAccent);
-  font-size: 10px;
-}
-
-.utilityBarSite {
-  color: var(--currentAccent);
-  font-family: var(--fontHeader);
-  letter-spacing: 1.5px;
-}
-
-.utilityBarDots {
-  width: 26px;
-  border-top: dotted 2px rgba(0, 0, 0, 0.25);
-}
-
-.utilityBarCrumb {
-  color: var(--textDarkPrimary);
-}
-
-.utilityBarViewing {
-  font-style: italic;
-  font-weight: 400;
-  text-transform: none;
-  letter-spacing: 0;
   color: var(--textDarkMuted);
-  margin-left: 4px;
 }
 
-.utilityBarRight {
+.gsCardSubLinks a {
+  color: var(--textDarkMuted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.gsCardSubLinks a:hover {
+  color: var(--textDarkPrimary);
+}
+
+/* Title & Circular Line Graphic */
+.gsCardMainInfo {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 8px;
+}
+
+.gsCardTitle {
+  font-family: var(--fontHeader);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 1px;
+  color: var(--textDarkPrimary);
+  text-transform: uppercase;
+}
+
+.gsCardEmblem {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  position: relative;
+  background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.05) 100%);
+}
+
+.gsCardEmblem::after {
+  content: "✦";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+/* Card Content Split */
+.gsCardContentRow {
+  display: flex;
+  gap: 14px;
+}
+
+.gsCardLeftMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 54px;
   flex-shrink: 0;
 }
 
-.utilityBarArrow {
-  background: none;
-  border: none;
+.gsCardAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--accentRed);
+}
+
+.gsCardAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gsCardDots {
+  height: 24px;
+  border-left: dotted 2px rgba(0, 0, 0, 0.3);
+  margin: 2px 0;
+}
+
+.gsMetaStat {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.gsMetaLabel {
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--textDarkPrimary);
+}
+
+.gsMetaVal {
+  font-size: 6.5px;
   color: var(--textDarkMuted);
-  font-size: 12px;
-  cursor: pointer;
-  line-height: 1;
-  padding: 2px;
 }
 
-.utilityBarArrow:hover {
-  color: var(--currentAccent);
+/* Right Description Area */
+.gsCardRightDesc {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.utilityBarDot {
-  color: var(--currentAccent);
+.gsCardDescText {
   font-size: 10px;
+  line-height: 1.6;
+  color: var(--textDarkMuted);
 }
 
-.developerBanner{
+.gsCardDivider {
+  border-top: dotted 2px rgba(0, 0, 0, 0.2);
+  margin: 12px 0 8px;
+}
+
+.gsThreadTitle {
+  font-family: var(--fontHeader);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--textDarkPrimary);
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.gsThreadAuthor {
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--textDarkMuted);
+  text-transform: uppercase;
+}
+
+.gsThreadAuthor span {
+  color: var(--accentRed);
+}
+
+/* ==========================================================
+   Info Banner
+========================================================== */
+
+.infoBanner{
     position: relative;
 
     background-image: url("assets/type2.png"); 
@@ -798,7 +1023,7 @@ body {
     align-items: center;
 }
 
-.developerBanner::before{
+.infoBanner::before{
     content:"";
     position:absolute;
     inset:0;
@@ -806,7 +1031,7 @@ body {
     background:rgba(0,0,0,.60);
 }
 
-.developerBannerContent{
+.infoBannerContent{
     position:relative;
     z-index:2;
 
@@ -817,12 +1042,12 @@ body {
     gap:40px;
 }
 
-.developerBannerText {
+.infoBannerText {
   flex-shrink: 0;
   max-width: 190px;
 }
 
-.developerEyebrow {
+.infoBannerrEyebrow {
   display: block;
   color: #d7d7d7;
   font-size: 9px;
@@ -832,7 +1057,7 @@ body {
   margin-bottom: 6px;
 }
 
-.developerTitle {
+.infoBannerTitle {
   font-family: var(--fontHeader);
   font-weight: 900;
   font-size: 46px;
@@ -846,7 +1071,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.developerDescription {
+.infoBannerDescription {
   flex: 1;
   min-width: 0;
   color: #d4d4d4;
@@ -854,11 +1079,7 @@ body {
   line-height: 1.7;
 }
 
-/* ==========================================================
-   Banner Buttons
-========================================================== */
-
-.developerBannerButtons {
+.infoBannerButtons {
     flex-shrink: 0;
     display: grid;
     grid-template-columns: repeat(2, minmax(110px, 1fr));
@@ -866,31 +1087,20 @@ body {
 }
 
 
-.developerBannerButtons a{
-
+.infoBannerButtons a{
     color:white;
-
     text-decoration:none;
-
     text-transform:uppercase;
-
     letter-spacing:1px;
-
     font-size:10px;
-
     padding:9px 18px;
-
     border:1px solid rgba(255,255,255,.3);
-
     background:rgba(20,20,20,.45);
-
     backdrop-filter:blur(5px);
-
-    transition:.25s;
-
+    transition:.25s
 }
 
-.developerBannerButtons a.active{
+.infoBannerButtons a.active{
 
     background:var(--currentAccent);
 
@@ -898,7 +1108,7 @@ body {
 
 }
 
-.developerBannerButtons a:hover{
+.infoBannerButtons a:hover{
 
     background:var(--currentAccent);
 
@@ -908,29 +1118,122 @@ body {
 
 
 /* ==========================================================
-   Welcome
+   Utility Bar
 ========================================================== */
 
-.welcomeHomepage{
+.utilityBar {
+  position: sticky;
+  background-color: var(--welcomeBg);
+  background-image: var(--texture);
+  background-blend-mode: multiply;
+  padding: 2px 2px;
+  box-sizing: border-box;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+}
 
-    background-color: var(--welcomeBgLight);
 
-    padding:40px;
+.utilityBarInner {
+  border: 2px solid #000000;
+  padding: 3px;
+  background-color: var(--welcomeBg);
+  background-image: var(--texture);
+  background-blend-mode: multiply;
+  box-sizing: border-box;
+  width: 100%;
+}
 
-    display:grid;
 
-    grid-template-columns:3fr 1fr;
+.utilityBarLeft {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
 
-    gap:25px;
+  background-color: var(--sidebarBg);
+  background-image: var(--texture);
+  background-blend-mode: soft-light;
+
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+
+.utilityBarIcon {
+  color: var(--currentAccent);
+  font-size: 10px;
+}
+
+.utilityBarTypeSoul {
+  color: var(--currentAccent);        
+  font-family: var(--fontHeader);
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  transition: opacity 0.25s ease;
+}
+
+.utilityBarDots {
+  width: 26px;
+  border-top: dotted 2px rgba(255, 255, 255, 0.4); 
+}
+
+.utilityBarNav {
+  text-decoration: none;
+  color: var(--textMain);   
+  transition: 0.25s ease;
+}
+
+.utilityBarSite:hover {
+  opacity: 0.5;
+}
+
+.utilityBarNav:hover {
+  color: var(--currentAccent);
+}
+
+.utilityBarViewing {
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--textMain);
+  margin-left: 4px;
+}
+
+
+/* ==========================================================
+   About
+========================================================== */
+
+.aboutSection{
+
+  background-image: var(--texture);
+  background-blend-mode: multiply;
+  background-color: var(--welcomeBg); 
+
+  padding:40px;
+
+  display:grid;
+
+  grid-template-columns:3fr 1fr;
+
+  gap:25px;
 
 }
 
-.welcomeCard{
-    padding: 10px 5px;
+.aboutCard{
+  padding: 10px 5px;
 }
 
 /* Top nav-links row */
-.cardTopNav,
+.lilNavInfoBar,
 .devTopNav {
     display: flex;
     justify-content: flex-end;
@@ -939,12 +1242,26 @@ body {
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-.navLinks {
+.lilNavInfo {
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 1px;
     color: var(--textDarkPrimary);
     text-transform: uppercase;
+}
+
+.lilNavInfo .lilNavInfoTypeSoul {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    background: linear-gradient(to bottom, var(--currentAccent), var(--textDarkPrimary) 75%);
+    
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    -webkit-text-fill-color: transparent;
 }
 
 /* Title + decorative emblem */
@@ -954,7 +1271,7 @@ body {
     overflow: hidden;
 }
 
-.welcomeCard h2 {
+.aboutCard h2 {
     font-family: var(--fontHeader);
     color: var(--textDarkPrimary);
     font-size: 34px;
@@ -1050,11 +1367,6 @@ body {
     color: var(--textDarkPrimary);
 }
 
-
-/* ==========================================================
-   Developer Card
-========================================================== */
-
 .featuredDeveloper{
 
     /* background:white; */
@@ -1106,4 +1418,227 @@ body {
 
     font-size:12px;
 
+}
+
+/* ==========================================================
+   Section Divider
+========================================================== */
+
+.sectionDividerWrap {
+  background-color: var(--welcomeBg);
+  background-image: var(--texture);
+  background-blend-mode: multiply;
+  padding: 30px 40px;
+}
+
+.sectionDivider {
+  position: relative;
+  overflow: hidden;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+
+  background-color: #151515;
+  background-image: url('assets/type4.png');
+  background-size: cover;
+  background-position: 0 calc(25% - 3px);
+  background-repeat: no-repeat;
+}
+
+.sectionDivider::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(8, 8, 8, 0.95) 32%, rgba(8, 8, 8, 0.35) 68%, rgba(8, 8, 8, 0.1));
+}
+
+.sectionDividerAccent {
+  position: relative;
+  z-index: 1;
+  align-self: stretch;
+  margin: 26px 0 26px 44px;
+  border-left: 2px dotted var(--currentAccentFaction);
+}
+
+.sectionDividerText {
+  position: relative;
+  z-index: 1;
+  padding: 0 32px;
+}
+
+.sectionDividerTitle {
+  font-family: var(--fontHeader);
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.sectionDividerSub {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--currentAccentFaction);
+  margin-top: 10px;
+  max-width: 560px;
+}
+
+
+/* ==========================================================
+   Faction Hero — full-viewport faction showcase
+========================================================== */
+
+.factionHero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  background-image: url(assets/factions/soulSociety.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.3s ease;
+}
+
+.factionHeroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.55));
+  z-index: 0;
+}
+
+.factionHeroArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.factionHeroArrow:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.12);
+}
+
+.factionHeroArrowLeft {
+  left: 26px;
+}
+
+.factionHeroArrowRight {
+  right: 26px;
+}
+
+.factionHeroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 620px;
+  padding: 0 30px;
+}
+
+.factionHeroMark {
+  display: block;
+  color: var(--currentAccentFaction);
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.factionHeroName {
+  font-family: var(--fontHeader);
+  font-size: 54px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.factionHeroCategory {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--currentAccentFaction);
+  margin-bottom: 8px;
+}
+
+.factionHeroTagline {
+  font-size: 13px;
+  color: #e6e6e6;
+  margin-bottom: 20px;
+}
+
+.factionHeroRule {
+  display: block;
+  width: 50px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 0 auto 20px;
+}
+
+.factionHeroDesc {
+  font-size: 12px;
+  line-height: 1.85;
+  color: #d4d4d4;
+}
+
+.factionHeroDesc strong {
+  color: var(--currentAccentFaction);
+}
+
+.factionHeroScrollHint {
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #ffffff;
+  opacity: 0.65;
+}
+
+.factionHeroDots {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  z-index: 2;
+  display: flex;
+  gap: 8px;
+}
+
+.factionHeroDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.factionHeroDot.active {
+  background: var(--currentAccentFaction);
 }
