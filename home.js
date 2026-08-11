@@ -67,7 +67,7 @@ const raceData = {
     registryQuote: "Every object holds a memory. In the hands of a Fullbringer, that memory becomes a weapon.",
     newsQuote: "Type soul's fullbringer faction.",
     registryItems: [
-      { name: "Book of End", class: "registryMythicalBookOfTheEnd", desc: "Inserts the user into the target's past, learning their weaknesses and bypassing block defenses." },
+      { name: "Book Of The End", class: "registryMythicalBookOfTheEnd", desc: "Inserts the user into the target's past, learning their weaknesses and bypassing block defenses." },
       { name: "Time Tells No Lies", class: "registryLegendary", desc: "Increases attack power and movement speed the dirtier and longer the combat goes on." },
       { name: "Devil's Arm", class: "", desc: "Traps opponents inside a digital pocket dimension with customizable combat rules." },
       { name: "Chess", class: "registryMythicalChess", desc: "Shrinks targets and traps them inside small containers to disable them temporarily." },
