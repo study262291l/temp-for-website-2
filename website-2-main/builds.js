@@ -102,7 +102,7 @@ const raceData = {
         number: "02",
         name: "Full Speed",
         detail: "65 Speed",
-        stats: "Death Dealing, Heat, Iron, Fear",
+        elements: "Death Dealing, Heat, Iron, Fear",
         stats: "No Skill Spam Burst",
         description: "A fully Speed-focused build designed around mobility. This setup is ideal for players who want to move quickly and control the pace of combat."
       },
@@ -246,5 +246,30 @@ function selectRace(raceKey, event) {
 
 
 window.addEventListener('DOMContentLoaded', () => {
-  selectRace('sr');
+  const params = new URLSearchParams(window.location.search);
+
+  const race = params.get('race');
+  const buildNumber = params.get('build');
+
+  selectRace(race || 'sr');
+
+  if (buildNumber) {
+    const buildCards = document.querySelectorAll('.build-card');
+
+    buildCards.forEach(card => {
+      const number = card.querySelector('.build-num');
+
+      if (number && number.textContent.trim() === buildNumber) {
+        card.classList.add('open');
+
+        // Optional: scroll to the build
+        setTimeout(() => {
+          card.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }, 100);
+      }
+    });
+  }
 });
