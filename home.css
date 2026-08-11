@@ -1390,6 +1390,13 @@ body {
   background-repeat: no-repeat
 }
 
+.sectionDivider.featured {
+  background-image: url('assets/type3.png');
+  background-position: calc(5000% + 500px) calc(15% - 3px);
+  background-repeat: no-repeat
+}
+
+
 .sectionDivider::before {
   content: "";
   position: absolute;
