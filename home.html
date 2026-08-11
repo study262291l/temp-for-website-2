@@ -29,7 +29,7 @@
     </div>
   </header>
 
-  <div class="heroSection">
+  <div class="heroSection" id="heroSection">
     
     <aside class="heroLeft">
 
@@ -117,122 +117,306 @@
         <img src="assets/ichigoBanner.png" alt="Banner Render" class="characterRender">
       </div>
 
-      <div class="utilityBar">
-        <div class="utilityBarLeft">
-          <span class="utilityBarIcon">✦</span>
-          <span class="utilityBarSite">TYPE SOUL</span>
-          <span class="utilityBarDots"></span>
-          <span class="utilityBarCrumb">RACES</span>
-          <span class="utilityBarDots"></span>
-          <span class="utilityBarCrumb">Faction bases</span>
-          <span class="utilityBarDots"></span>
-          <span class="utilityBarViewing">INFO</span>
-        </div>
-        <div class="utilityBarRight">
-          <button class="utilityBarArrow" aria-label="Scroll up">⌃</button>
-          <span class="utilityBarDot">•</span>
-          <button class="utilityBarArrow" aria-label="Scroll down">⌄</button>
+      <div class="lilSectionBar" id="aboutSection">
+        <div class="lilSectionBarInner">
+          <span class="lilSectionBarInfo">RACES / ABOUT</span>
         </div>
       </div>
 
-      <section class="developerBanner">
-
-        <div class="developerBannerContent">
-
-            <div class="developerBannerText">
-
-                <span class="developerEyebrow">
+      <section class="infoBanner" id="racesSection">
+        <div class="infoBannerContent">
+            <div class="infoBannerText">
+                <span class="infoBannerEyebrow">
                     CLICK TO VIEW EACH
                 </span>
-
-                <h2 class="developerTitle">
+                <h2 class="infoBannerTitle">
                     Race
                 </h2>
-
             </div>
-
-            <p class="developerDescription">
+            <p class="infoBannerDescription">
                 Type Soul is home to four core races, each with their own mechanics and playstyle. Soul Reapers rely on Zanpakuto and spiritual pressure, Arrancars channel Hollow power through Resurreccion, Quincy master ranged Reishi combat, and Fullbringers draw strength from the objects around them.
             </p>
-
-            <div class="developerBannerButtons">
-
+            <div class="infoBannerButtons">
                 <a href="#" class="active">Soul Reapers</a>
                 <a href="#">Arrancars</a>
                 <a href="#">Quincy</a>
                 <a href="#">Fullbringers</a>
-
             </div>
-
+        </div>
+      </section>
+      
+      <section class="gettingStartedSection">
+      
+        <!-- Top Banner with Header Art -->
+        <div class="gsHeaderBanner">
+          <div class="gsHeaderContent">
+            <div class="gsHeaderAccent"></div>
+            <div>
+              <h2 class="gsHeaderTitle">GETTING STARTED</h2>
+              <p class="gsHeaderSub">THERE SIGNS, COMPLAINTS, AND ULULATIONS LOUD RESOUNDED THROUGH THE AIR WITHOUT A STAR, WHENCE I, AT THE BEGINNING, WEPT THEREAT.</p>
+            </div>
+          </div>
+          <div class="gsHeaderArt"></div>
         </div>
 
-    </section>
+        <!-- 3-Column Card Layout -->
+        <div class="gsCardsGrid">
 
-
-    <!-- ========================================= -->
-    <!-- Welcome Section -->
-    <!-- ========================================= -->
-
-    <section class="welcomeHomepage">
-
-        <div class="welcomeCard">
-
-            <div class="cardTopNav">
-                <span class="navLinks">GETTING STARTED • LATEST NEWS • BEGINNER GUIDE • JOIN DISCORD</span>
+          <!-- Card 1: Bulletin Board -->
+          <div class="gsCard">
+            <div class="gsCardTopNav">
+              <span class="gsCardBadge">NAVIGATE</span>
+              <div class="gsCardSubLinks">
+                <a href="#">SIDE QUESTS</a> • <a href="#">PAST UPDATES</a>
+              </div>
             </div>
 
-            <div class="cardHeaderGroup">
-                <h2>Welcome to<br>Type Soul</h2>
-                <svg class="cardEmblem" viewBox="0 0 100 100" fill="none" stroke="currentColor">
-                  <circle cx="50" cy="50" r="45" stroke-width="2" stroke-dasharray="4 2"/>
-                  <path d="M50 10 L50 90 M10 50 L90 50 M22 22 L78 78 M22 78 L78 22" stroke-width="1.5"/>
-                  <circle cx="50" cy="50" r="20" stroke-width="2"/>
-                </svg>
+            <div class="gsCardBody">
+              <div class="gsCardMainInfo">
+                <h3 class="gsCardTitle">BULLETIN<br>BOARD</h3>
+                <div class="gsCardEmblem"></div>
+              </div>
+
+              <div class="gsCardContentRow">
+                <div class="gsCardLeftMeta">
+                  <div class="gsCardAvatar"><img src="assets/setro.png" alt="Avatar"></div>
+                  <div class="gsCardDots"></div>
+                  <div class="gsMetaStat">
+                    <span class="gsMetaLabel">THREADS</span>
+                    <span class="gsMetaVal">000 written</span>
+                  </div>
+                  <div class="gsMetaStat">
+                    <span class="gsMetaLabel">POSTS</span>
+                    <span class="gsMetaVal">000 written</span>
+                  </div>
+                </div>
+
+                <div class="gsCardRightDesc">
+                  <p class="gsCardDescText">
+                    If you're in need of staff assistance, our member services may be found here. A general moderation request thread can be found inside, as well as a collection of templates for use on Astoria and the manual site shop.
+                  </p>
+                  <div class="gsCardDivider"></div>
+                  <div class="gsCardFooterMeta">
+                    <h4 class="gsThreadTitle">the number of the beast, hell and fire were spawned to be...</h4>
+                    <p class="gsThreadAuthor">WRITTEN BY <span>ULRICH RORSCHACH</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Member Services -->
+          <div class="gsCard">
+            <div class="gsCardTopNav">
+              <span class="gsCardBadge">NAVIGATE</span>
+              <div class="gsCardSubLinks">
+                <a href="#">SHOP</a> • <a href="#">MODERATION</a> • <a href="#">CODES</a>
+              </div>
             </div>
 
-            <div class="cardTextRow">
-                <p>
-                    Whether you're just beginning your journey or grinding for
-                    your next progression, our goal is to make finding
-                    information simple. Browse race guides, boss drops,
-                    progression routes and community resources all in one place.
-                </p>
-                <span class="cardScrollAccent"><span class="scrollDot"></span></span>
+            <div class="gsCardBody">
+              <div class="gsCardMainInfo">
+                <h3 class="gsCardTitle">MEMBER<br>SERVICES</h3>
+                <div class="gsCardEmblem"></div>
+              </div>
+
+              <div class="gsCardContentRow">
+                <div class="gsCardLeftMeta">
+                  <div class="gsCardAvatar"><img src="assets/setro.png" alt="Avatar"></div>
+                  <div class="gsCardDots"></div>
+                  <div class="gsMetaStat">
+                    <span class="gsMetaLabel">THREADS</span>
+                    <span class="gsMetaVal">000 written</span>
+                  </div>
+                  <div class="gsMetaStat">
+                    <span class="gsMetaLabel">POSTS</span>
+                    <span class="gsMetaVal">000 written</span>
+                  </div>
+                </div>
+
+                <div class="gsCardRightDesc">
+                  <p class="gsCardDescText">
+                    If you're in need of staff assistance, our member services may be found here. A general moderation request thread can be found inside, as well as a collection of templates for use on Astoria and the manual site shop.
+                  </p>
+                  <div class="gsCardDivider"></div>
+                  <div class="gsCardFooterMeta">
+                    <h4 class="gsThreadTitle">i will return</h4>
+                    <p class="gsThreadAuthor">WRITTEN BY <span>ULRICH RORSCHACH</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Recreation Center -->
+          <div class="gsCard">
+            <div class="gsCardTopNav">
+              <span class="gsCardBadge">NAVIGATE</span>
+              <div class="gsCardSubLinks">
+                <a href="#">INTROS</a> • <a href="#">GALLERIES</a> • <a href="#">ARCADE</a>
+              </div>
             </div>
 
-            <div class="cardDivider"></div>
+            <div class="gsCardBody">
+              <div class="gsCardMainInfo">
+                <h3 class="gsCardTitle">RECREATION<br>CENTER</h3>
+                <div class="gsCardEmblem"></div>
+              </div>
 
-            <div class="cardCredit">
-                <p class="creditThread">the road to soul society starts here...</p>
-                <p class="creditAuthor">Made BY <span>THE TYPE SOUL TEAM</span></p>
-                <p class="creditStats">THREADS <span>128</span> &nbsp;•&nbsp; POSTS <span>2.4K</span></p>
+              <div class="gsCardContentRow">
+                <div class="gsCardLeftMeta">
+                  <div class="gsCardAvatar"><img src="assets/setro.png" alt="Avatar"></div>
+                  <div class="gsCardDots"></div>
+                  <div class="gsMetaStat">
+                    <span class="gsMetaLabel">THREADS</span>
+                    <span class="gsMetaVal">000 written</span>
+                  </div>
+                  <div class="gsMetaStat">
+                    <span class="gsMetaLabel">POSTS</span>
+                    <span class="gsMetaVal">000 written</span>
+                  </div>
+                </div>
+
+                <div class="gsCardRightDesc">
+                  <p class="gsCardDescText">
+                    A hub for optional out-of-character content, mostly light-hearted in tone. You're welcome to introduce yourself, or you may participate in one of the many forum games offered inside.
+                  </p>
+                  <div class="gsCardDivider"></div>
+                  <div class="gsCardFooterMeta">
+                    <h4 class="gsThreadTitle">the number of the beast, hell and fire were spawned...</h4>
+                    <p class="gsThreadAuthor">WRITTEN BY <span>ULRICH RORSCHACH</span></p>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
 
         </div>
-
-
-        <aside class="featuredDeveloper">
-
-            <div class="devTopNav">
-                <span class="navLinks">MEET THE TEAM</span>
-            </div>
-
-            <img src="assets/setro.png" alt="Developer">
-
-            <div class="cardDivider"></div>
-
-            <p class="creditAuthor">Made BY <span>SETRO</span></p>
-            <span class="devRole">LEAD DEVELOPER</span>
-            <p class="devBlurb">
-                Building guides, tools and community resources.
-            </p>
-
-        </aside>
-
-    </section>
+      </section>
 
     </main>
+    
+  </div>
 
+  <div class="utilityBar">
+    <div class="utilityBarInner">
+      <div class="utilityBarLeft">
+        <span class="utilityBarIcon">✦</span>
+        <a href="#" class="utilityBarTypeSoul">TYPE SOUL</a>
+        <span class="utilityBarDots"></span>
+        <a href="#aboutSection" class="utilityBarNav">ABOUT</a>
+        <span class="utilityBarDots"></span>
+        <a href="#factionHero" class="utilityBarNav">FACTION BASES</a>
+        <span class="utilityBarDots"></span>
+        <span class="utilityBarViewing">INFO</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="aboutSection">
+
+    <div class="aboutCard">
+
+        <div class="lilNavInfoBar">
+            <span class="lilNavInfo">About • <span class="lilNavInfoTypeSoul">Type Soul</span> </span>
+        </div>
+
+        <div class="cardHeaderGroup">
+            <h2>About<br> • Type Soul</h2>
+            <svg class="cardEmblem" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+              <circle cx="50" cy="50" r="45" stroke-width="2" stroke-dasharray="4 2"/>
+              <path d="M50 10 L50 90 M10 50 L90 50 M22 22 L78 78 M22 78 L78 22" stroke-width="1.5"/>
+              <circle cx="50" cy="50" r="20" stroke-width="2"/>
+            </svg>
+        </div>
+
+        <div class="cardTextRow">
+            <p>
+                Type soulType soulType soulType soulType soulType soulType soul
+                Type soulType soulType soulType soulType soulType soulType soul
+                Type soulType soulType soulType soulType soulType soulType soul
+                Type soulType soulType soulType soulType soulType soulType soul
+            </p>
+            <span class="cardScrollAccent"><span class="scrollDot"></span></span>
+        </div>
+
+        <div class="cardDivider"></div>
+
+        <div class="cardCredit">
+            <p class="creditThread">the road to soul society starts here...</p>
+            <p class="creditAuthor">Made BY <span>THE TYPE SOUL TEAM</span></p>
+            <p class="creditStats">THREADS <span>128</span> &nbsp;•&nbsp; POSTS <span>2.4K</span></p>
+        </div>
+
+    </div>
+
+    <aside class="featuredDeveloper">
+
+        <div class="devTopNav">
+            <span class="navLinks">MEET THE TEAM</span>
+        </div>
+
+        <img src="assets/setro.png" alt="Developer">
+
+        <div class="cardDivider"></div>
+
+        <p class="creditAuthor">Made BY <span>SETRO</span></p>
+        <span class="devRole">LEAD DEVELOPER</span>
+        <p class="devBlurb">
+            Building guides, tools and community resources.
+        </p>
+
+    </aside>
+
+  </section>
+
+  <div class="sectionDividerWrap">
+    <div class="sectionDivider">
+      <span class="sectionDividerAccent"></span>
+      <div class="sectionDividerText">
+        <h2 class="sectionDividerTitle">Factions</h2>
+        <p class="sectionDividerSub">Four warring powers, one broken world — choose where your story begins.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="factionHero" id="factionHero" style="background-image: url('assets/base-karakura.jpg');">
+    <div class="factionHeroOverlay"></div>
+
+    <button class="factionHeroArrow factionHeroArrowLeft" id="factionPrevBtn" aria-label="Previous faction">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <div class="factionHeroContent">
+      <span class="factionHeroMark">✦</span>
+      <h2 class="factionHeroName" id="factionHeroName">Karakura</h2>
+      <span class="factionHeroCategory" id="factionHeroCategory">STARTER ZONE</span>
+      <p class="factionHeroTagline" id="factionHeroTagline">Where every soul reaper's story begins.</p>
+      <span class="factionHeroRule"></span>
+      <p class="factionHeroDesc" id="factionHeroDesc">
+        Roaming Hollows spawn nightly near the riverbank district. Boss encounter: <strong>Grand Fisher</strong>. Complete the Substitute Trial questline to unlock your first Zanpakuto.
+      </p>
+    </div>
+
+    <button class="factionHeroArrow factionHeroArrowRight" id="factionNextBtn" aria-label="Next faction">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <div class="factionHeroScrollHint">
+      <i class="fa-solid fa-arrow-down"></i> SCROLL DOWN TO DISCOVER
+    </div>
+
+    <div class="factionHeroDots" id="factionHeroDots"></div>
+  </section>
+
+  <div class="sectionDividerWrap">
+    <div class="sectionDivider">
+      <span class="sectionDividerAccent"></span>
+      <div class="sectionDividerText">
+        <h2 class="sectionDividerTitle">Factions</h2>
+        <p class="sectionDividerSub">Four warring powers, one broken world — choose where your story begins.</p>
+      </div>
+    </div>
   </div>
 
   <script src="home.js"></script>
