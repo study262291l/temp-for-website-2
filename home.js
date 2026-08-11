@@ -78,15 +78,53 @@ const raceData = {
 };
 
 // ==========================================
-// DOM SELECTION & EVENT LISTENERS
+// FACTION HERO DATA (full-viewport faction showcase)
 // ==========================================
+const factionBaseData = {
+  sr: {
+    name: "Soul Society",
+    accentColor: "var(--accentRed)",
+    baseImage: "assets/factions/soulSociety2.png",
+    category: "SOUL REAPER TERRITORY",
+    tagline: "The afterlife realm governed by the 13 Court Guard Squads.",
+    desc: "Squad barracks raids break out every few hours. Boss encounter: <strong>Central 46 Warden</strong>. Reach Squad Captain rank to access restricted Seireitei zones."
+  },
+  arrancars: {
+    name: "Hueco Mundo",
+    accentColor: "var(--arrancar)",
+    baseImage: "assets/factions/hueco.png",
+    tagline: "A barren desert realm ruled by aggressive spirits.",
+    desc: "Vasto Lorde-tier Hollows patrol the halls of Las Noches. Boss encounter: <strong>Nnoitra, the Sexta Espada</strong>. Survive the sand sea ambush to earn evolution cores."
+  },
+  quincy: {
+    name: "Wandenreich",
+    accentColor: "var(--accentBlue)",
+    baseImage: "assets/factions/wanden.png",
+    category: "QUINCY TERRITORY",
+    tagline: "The hidden ice realm of the pure-blooded Quincy.",
+    desc: "Sternritter elites guard the frozen citadel of Silbern. Boss encounter: <strong>The Great Sternritter</strong>. Clear the trial to unlock advanced Blut techniques."
+  },
+  fullbringers: {
+    name: "Karakura Town",
+    accentColor: "var(--fullbringer)",
+    baseImage: "assets/factions/kt.png",
+    category: "FULLBRINGER TERRITORY",
+    tagline: "Hidden power, carried in the objects of everyday life.",
+    desc: "Rival Fullbringer crews contest warehouse hideouts nightly. Boss encounter: <strong>Xcution Enforcer</strong>. Reclaim the warehouse to unlock rare Fullbring drops."
+  }
+};
+
+const factionOrder = ["sr", "arrancars", "quincy", "fullbringers"];
+
+
 document.addEventListener("DOMContentLoaded", () => {
-  const raceButtons = document.querySelectorAll(".developerBannerButtons a");
+  const raceButtons = document.querySelectorAll(".infoBannerButtons a");
   const heroLeft = document.querySelector(".heroLeft");
 
   // DOM Elements to Update
   const root = document.documentElement; 
   const characterImg = document.querySelector('.bannerCharacterImage .characterRender');
+  const lilSectionBarInfo = document.querySelector(".lilSectionBarInfo");
   const titleEl = document.querySelector(".heroLeftTitle");
   const welcomeTextEl = document.querySelector(".heroLeftWelcomeText");
   const regTitleEl = document.querySelector(".registryTitle");
@@ -94,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const newsQuoteEl = document.querySelector(".heroLeftNewsQuote");
   const registryGrid = document.querySelector(".registryGrid");
 
-  // 1. Race Selection Handler
+
   raceButtons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
@@ -113,9 +151,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = raceData[raceKey];
       if (!data) return;
 
-      // Smooth Fade Animation
       heroLeft.style.opacity = "0";
       heroLeft.style.transition = "opacity 0.25s ease";
+
+      lilSectionBarInfo.style.opacity = "0";
+      lilSectionBarInfo.style.transition = "opacity 0.25s ease";
 
       characterImg.style.opacity = "0";
       characterImg.style.transition = "opacity 0.25s ease";
@@ -135,12 +175,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Fade Back In
         heroLeft.style.opacity = "1";
+        lilSectionBarInfo.style.opacity = "1",
         characterImg.style.opacity = "1";
       }, 250);
     });
   });
 
-  // Helper function to create registry chips and set up Accordion behavior
+  
   function buildRegistryGrid(items, container) {
     if (!container) return;
     container.innerHTML = "";
@@ -185,8 +226,69 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Initial setup for default Soul Reapers grid on page load
+
   if (registryGrid && raceData["sr"]) {
     buildRegistryGrid(raceData["sr"].registryItems, registryGrid);
   }
+
+
+  const factionHero = document.getElementById("factionHero");
+  const factionHeroName = document.getElementById("factionHeroName");
+  const factionHeroCategory = document.getElementById("factionHeroCategory");
+  const factionHeroTagline = document.getElementById("factionHeroTagline");
+  const factionHeroDesc = document.getElementById("factionHeroDesc");
+  const factionPrevBtn = document.getElementById("factionPrevBtn");
+  const factionNextBtn = document.getElementById("factionNextBtn");
+  const factionHeroDots = document.getElementById("factionHeroDots");
+
+  let currentFactionIndex = 0;
+
+  function renderFactionHero() {
+    const key = factionOrder[currentFactionIndex];
+    const data = factionBaseData[key];
+    if (!data || !factionHero) return;
+
+    factionHero.style.backgroundImage = `url('${data.baseImage}')`;
+    if (factionHeroName) factionHeroName.textContent = data.name;
+    if (factionHeroCategory) factionHeroCategory.textContent = data.category;
+    if (factionHeroTagline) factionHeroTagline.textContent = data.tagline;
+    if (factionHeroDesc) factionHeroDesc.innerHTML = data.desc;
+    if (root) root.style.setProperty("--currentAccentFaction", data.accentColor)
+
+    document.querySelectorAll(".factionHeroDot").forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentFactionIndex);
+    });
+  }
+
+  function buildFactionDots() {
+    if (!factionHeroDots) return;
+    factionHeroDots.innerHTML = "";
+
+    factionOrder.forEach((key, i) => {
+      const dot = document.createElement("span");
+      dot.className = "factionHeroDot" + (i === 0 ? " active" : "");
+      dot.addEventListener("click", () => {
+        currentFactionIndex = i;
+        renderFactionHero();
+      });
+      factionHeroDots.appendChild(dot);
+    });
+  }
+
+  if (factionPrevBtn) {
+    factionPrevBtn.addEventListener("click", () => {
+      currentFactionIndex = (currentFactionIndex - 1 + factionOrder.length) % factionOrder.length;
+      renderFactionHero();
+    });
+  }
+
+  if (factionNextBtn) {
+    factionNextBtn.addEventListener("click", () => {
+      currentFactionIndex = (currentFactionIndex + 1) % factionOrder.length;
+      renderFactionHero();
+    });
+  }
+
+  buildFactionDots();
+  renderFactionHero();
 });
