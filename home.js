@@ -84,17 +84,17 @@ const factionBaseData = {
   sr: {
     name: "Soul Society",
     accentColor: "var(--accentRed)",
-    baseImage: "assets/factions/soulSociety2.png",
+    baseImage: "assets/factions/soulSociety.png",
     category: "SOUL REAPER TERRITORY",
     tagline: "The afterlife realm governed by the 13 Court Guard Squads.",
-    desc: "Squad barracks raids break out every few hours. Boss encounter: <strong>Central 46 Warden</strong>. Reach Squad Captain rank to access restricted Seireitei zones."
+    desc: "Faction raid events break out every other hour. <br>Boss encounter: <strong>Jidanbo</strong>.<br> Pledge yourself to the sword to unlock <span class=fullMode>Bankai<span>."
   },
   arrancars: {
     name: "Hueco Mundo",
     accentColor: "var(--arrancar)",
     baseImage: "assets/factions/hueco.png",
     tagline: "A barren desert realm ruled by aggressive spirits.",
-    desc: "Vasto Lorde-tier Hollows patrol the halls of Las Noches. Boss encounter: <strong>Nnoitra, the Sexta Espada</strong>. Survive the sand sea ambush to earn evolution cores."
+    desc: "Faction raid events break out every other hour. <br>Boss encounter: <strong>Ikomikidomoe</strong>.<br> Prove your willpower and your soul to unlock <span class=fullMode>Resurrección: Segunda Etapa<span>."
   },
   quincy: {
     name: "Wandenreich",
@@ -102,7 +102,7 @@ const factionBaseData = {
     baseImage: "assets/factions/wanden.png",
     category: "QUINCY TERRITORY",
     tagline: "The hidden ice realm of the pure-blooded Quincy.",
-    desc: "Sternritter elites guard the frozen citadel of Silbern. Boss encounter: <strong>The Great Sternritter</strong>. Clear the trial to unlock advanced Blut techniques."
+    desc: "Faction raid events break out every other hour. <br>Boss encounter: <strong>None</strong>.<br> Prove your loyalty to the king to unlock <span class=fullMode>Vollständig<span>."
   },
   fullbringers: {
     name: "Karakura Town",
@@ -110,7 +110,7 @@ const factionBaseData = {
     baseImage: "assets/factions/kt.png",
     category: "FULLBRINGER TERRITORY",
     tagline: "Hidden power, carried in the objects of everyday life.",
-    desc: "Rival Fullbringer crews contest warehouse hideouts nightly. Boss encounter: <strong>Xcution Enforcer</strong>. Reclaim the warehouse to unlock rare Fullbring drops."
+    desc: "Faction raid events break out every other hour. <br>Boss encounter: <strong>None</strong>.<br> Prove your determination to unlock <span class=fullMode>Fullbring sub mode<span>."
   }
 };
 
