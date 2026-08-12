@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Type Soul - Build Guide</title>
+  <link rel="stylesheet" href="builds.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="headerNav">
+    <div class="headerNavInner">
+      <div class="hnBarLeft">
+        <span class="hnBarIcon">✦</span>
+        <a href="home.html" class="hnBarNav">Home</a>
+        <span class="hnBarDots"></span>
+        <a href="builds.html" class="hnBarNav active">Builds</a>
+        <span class="hnBarDots"></span>
+        <a href="quiz.html" class="hnBarNav">Quiz</a>
+        <span class="hnBarDots"></span>
+        <a href="fun-facts.html" class="hnBarNav">Fun Facts</a>
+        <span class="hnBarDots"></span>
+        <a href="community.html" class="hnBarNav">Community</a>
+        <span class="hnBarDots"></span>
+        <span class="hnBarViewing">NAVIGATION</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION (Image 1 Style) -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <p class="sub-header">BUILD GUIDES</p>
+      <h1 class="hero-title">TYPE SOUL</h1>
+    </div>
+  </section>
+
+  <section class="intro-section">
+    <div class="intro-container">
+      <div class="intro-header">
+        <i class="fa-solid fa-butterfly butterfly-icon"></i>
+        <h2>Intro</h2>
+      </div>
+      <div class="intro-grid">
+        <p class="intro-text">
+          Welcome to the ultimate Type Soul Build Guide! Here you can explore top-tier builds customized for each faction. Select a race below to view statutory recommendations, skill trees, and meta equipment to maximize your combat performance in the field.
+        </p>
+        <p class="intro-text">
+          Check back regularly for updated meta strategies and community patch summaries to keep your character optimized for every update.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RACE SELECTION & BUILDS SECTION (Image 2 Style) -->
+  <section class="races-section" id="racesSection">
+    <div class="race-banner">
+      <h1 class="race-title" id="display-title">SOUL REAPER</h1>
+      <p class="race-subtitle" id="display-subtitle">4 RACES • OPTIMIZED BUILDS</p>
+    </div>
+
+    <!-- 4 Race Cards -->
+    <div class="race-grid">
+      <div class="race-card active" onclick="selectRace('sr', event)">
+        <div class="img-wrapper">
+          <img src="assets/type.png" alt="Soul Reaper">
+        </div>
+        <span>SOUL REAPER</span>
+      </div>
+
+      <div class="race-card" onclick="selectRace('arrancar', event)">
+        <div class="img-wrapper">
+          <img src="assets/type3.png" alt="Arrancar">
+        </div>
+        <span>ARRANCAR</span>
+      </div>
+
+      <div class="race-card" onclick="selectRace('quincy', event)">
+        <div class="img-wrapper">
+          <img src="assets/type2.png" alt="Quincy">
+        </div>
+        <span>QUINCY</span>
+      </div>
+
+
+
+      <div class="race-card" onclick="selectRace('fullbringer', event)">
+        <div class="img-wrapper">
+          <img src="assets/type4.png" alt="Fullbringer">
+        </div>
+        <span>FULLBRINGER</span>
+      </div>
+    </div>
+
+    <div class="builds-container" id="builds-list">
+    </div>
+    
+  </section>
+
+  <footer class="mainFooter">
+  
+
+    <div class="footerContainer">
+      <div class="coolLine"></div>
+      <div class="footerTop">
+        <div class="footerBrand">
+          <h2 class="footerTitle">TYPE</h2>
+          <h2 class="footerTitle footerTitleLarge"><br>&nbsp✦ SOUL</h2>
+          <p class="footerSubTitle">AN EXTREMELY <span class="highlightText">COMPETITIVE</span> ROBLOX GAME</p>
+        </div>
+
+        <nav class="footerNav">
+          <div class="footerNavCol">
+            <h4 class="footerNavTitle">Navigate</h4>
+            <span class="footerTitleLine"></span>
+            <div class="footerNavGrid">
+              <a href="home.html" class="footerNavGridBtn">Home</a>
+              <a href="builds.html" class="footerNavGridBtn">Build Guide</a>
+              <a href="#" class="footerNavGridBtn">Quiz</a>
+              <a href="#" class="footerNavGridBtn">Fun Facts</a>
+              <a href="#" class="footerNavGridBtn">Community</a>
+            </div>
+          </div>
+
+          <div class="footerNavCol">
+            <h4 class="footerNavTitle">Resources</h4>
+            <span class="footerTitleLine"></span>
+            <div class="footerNavGrid">
+              <a href="#" class="footerNavGridBtn">About Type Soul</a>
+              <a href="#" class="footerNavGridBtn">Race Guides</a>
+              <a href="#" class="footerNavGridBtn">Archive</a>
+              <a href="#" class="footerNavGridBtn">Roblox</a>
+              <a href="#" class="footerNavGridBtn">Discord</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="coolLine"></div>
+    </div>
+
+  </footer>
+
+  <script src="builds.js"></script>
+</body>
+</html>
