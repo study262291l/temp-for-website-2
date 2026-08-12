@@ -98,7 +98,7 @@ body {
   gap: 12px;
   font-family: 'Georgia', serif;
   font-size: 22px;
-  color: #a3486a;
+  color: var(--current-accent);
   border-bottom: 1px dashed #888;
   padding-bottom: 8px;
   margin-bottom: 20px;
