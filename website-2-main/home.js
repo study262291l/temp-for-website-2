@@ -292,3 +292,23 @@ document.addEventListener("DOMContentLoaded", () => {
   buildFactionDots();
   renderFactionHero();
 });
+
+
+document.querySelectorAll('.highlightLink').forEach(link => {
+  link.addEventListener('click', (event) => {
+    const targetId = link.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+
+    if (targetElement) {
+      targetElement.classList.remove('highlight');
+
+      void targetElement.offsetWidth;
+
+      targetElement.classList.add('highlight');
+
+      setTimeout(() => {
+        targetElement.classList.remove('highlight');
+      }, 1500);
+    }
+  });
+});
